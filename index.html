@@ -245,13 +245,13 @@ body {
         D-RAN, C-RAN, and Cloud C-RAN.
       </p>
 
-      <a class="button" href="https://1drv.ms/u/c/7c829e97a0088980/IQBzm2V1JGVMRLrRju_U1WvkAckFZ8aWVmCyjb7-xjZ9ECw?e=hBa4vc" target="_blank">
+      <a id="download-tool-link" class="button" href="https://1drv.ms/u/c/7c829e97a0088980/IQBzm2V1JGVMRLrRju_U1WvkAckFZ8aWVmCyjb7-xjZ9ECw?e=hBa4vc" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8.5 13.5v-9a.5.5 0 0 1 1 0v9l3.15-3.15a.5.5 0 0 1 .7.7l-4 4a.5.5 0 0 1-.7 0l-4-4a.5.5 0 1 1 .7-.7L8.5 13.5z"/></svg>
         Download Tool
       </a>
-
-      <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 4px; font-size: 0.9rem; line-height: 1.6;">
-        <strong>Disclaimer:</strong> To the best of the authors' knowledge, the software provided for download is free from viruses, malware, or any harmful components. The software has been developed and tested with the intention of being safe and functional for educational and research purposes. However, by choosing to download, install, or use the software, users accept full responsibility for any risks or potential issues that may arise. The authors and affiliated institutions shall not be held liable for any damage, data loss, or other consequences resulting from the use or testing of the software on users' personal or institutional devices.
+      <!-- Inline disclaimer hidden; confirmation modal will show the same text before download -->
+      <div style="display:none;" aria-hidden="true">
+        <strong>Disclaimer (hidden):</strong>
       </div>
 
       <p>The software is distributed as a standalone executable file.</p>
@@ -406,17 +406,75 @@ body {
   </div>
 </div>
 
+<!-- Download confirmation modal (hidden by default) -->
+<div id="downloadModal" aria-hidden="true" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999;">
+  <div role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle" style="background:#fff; max-width:720px; width:90%; margin:20px; border-radius:8px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+    <h3 id="downloadModalTitle" style="margin-top:0; color:#1d4ed8;">Download Disclaimer</h3>
+    <div style="margin-top:12px; color:#111827; line-height:1.5; font-size:0.95rem;">
+      <p><strong>Disclaimer:</strong> To the best of the authors' knowledge, the software provided for download is free from viruses, malware, or any harmful components. The software has been developed and tested with the intention of being safe and functional for educational and research purposes. However, by choosing to download, install, or use the software, users accept full responsibility for any risks or potential issues that may arise. The authors and affiliated institutions shall not be held liable for any damage, data loss, or other consequences resulting from the use or testing of the software on users' personal or institutional devices.</p>
+    </div>
+    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:18px;">
+      <button id="cancelDownload" style="background:#e5e7eb; color:#111827; border:none; padding:10px 14px; border-radius:6px; cursor:pointer;">Cancel</button>
+      <button id="confirmDownload" style="background:#1f2937; color:#fff; border:none; padding:10px 14px; border-radius:6px; cursor:pointer;">Continue with Download</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var downloadLink = document.getElementById('download-tool-link');
+    var modal = document.getElementById('downloadModal');
+    var confirmBtn = document.getElementById('confirmDownload');
+    var cancelBtn = document.getElementById('cancelDownload');
+    var pendingHref = null;
+
+    if (!downloadLink) return;
+
+    function showModal(href){
+      pendingHref = href;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      // set focus to confirm for keyboard users
+      confirmBtn.focus();
+    }
+
+    function hideModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      pendingHref = null;
+    }
+
+    downloadLink.addEventListener('click', function(e){
+      e.preventDefault();
+      var href = this.getAttribute('href');
+      showModal(href);
+    });
+
+    confirmBtn.addEventListener('click', function(){
+      if (pendingHref) {
+        // open in new tab (same behaviour as original link)
+        window.open(pendingHref, '_blank');
+      }
+      hideModal();
+    });
+
+    cancelBtn.addEventListener('click', function(){
+      hideModal();
+    });
+
+    // close modal on overlay click
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) hideModal();
+    });
+
+    // close on Escape
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && modal.style.display === 'flex') hideModal();
+    });
+  })();
+</script>
+
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

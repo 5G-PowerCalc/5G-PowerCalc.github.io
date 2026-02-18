@@ -8,236 +8,234 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4ZSNLL4MWJ');
 </script>
 
-  
-  <meta charset="UTF-8">
-  <title>Educational Tool for 5G Power Consumption Modelling</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* RESET + BASE STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<title>Educational Tool for 5G Power Consumption Modelling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
   background-color: #f9fafb;
   color: #1f2937;
   line-height: 1.6;
-  padding: 40px 10px;  /* reduce from 20px → 10px */
-  max-width: 1300px;  /* optional: make page wider */
+  padding: 40px 10px;
+  max-width: 1400px;   /* slightly wider page */
   margin: auto;
 }
 
+h1 {
+  color: #1d4ed8;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
 
-    h1 {
-      color: #1d4ed8;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+h3 {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #111827;
+}
 
-    h3 {
-      margin-top: 20px;
-      font-size: 1.4rem;
-      color: #111827;
-    }
+p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
 
-    p {
-      margin-bottom: 15px;
-      font-size: 1rem;
-    }
+ul {
+  list-style: disc inside;
+  margin-top: 10px;
+  padding-left: 10px;
+}
 
-    ul {
-      list-style: disc inside;
-      margin-top: 10px;
-      padding-left: 10px;
-    }
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
-      transition: color 0.2s ease-in-out;
-    }
+a:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}
 
-    a:hover {
-      text-decoration: underline;
-      color: #1d4ed8;
-    }
+/* BUTTON */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #1f2937;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
-    /* BUTTON STYLES */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 20px;
-      margin: 10px 0;
-      font-size: 16px;
-      color: #ffffff;
-      background-color: #1f2937;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
+.button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
 
-    .button svg {
-      width: 18px;
-      height: 18px;
-      fill: white;
-    }
+.button:hover {
+  background-color: #111827;
+}
 
-    .button:hover {
-      background-color: #111827;
-    }
+/* MAIN FLEX LAYOUT */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;                /* slightly more spacing */
+  align-items: center;      /* vertically center image */
+  margin-top: 30px;
+}
 
-    /* FLEX CONTAINER */
-    .main-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-      margin-top: 30px;
-    }
+.text-content {
+  flex: 1 1 50%;            /* reduced width */
+  min-width: 320px;
+}
 
-    .text-content {
-      flex: 1 1 60%;
-      min-width: 320px;
-    }
 .text-content p {
   text-align: justify;
 }
 
-    .image-container {
-      flex: 1 1 35%;
-      min-width: 300px;
-    }
+.image-container {
+  flex: 1 1 50%;            /* increased width */
+  min-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .image-container img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
+.image-container img {
+  width: 100%;
+  max-width: 700px;         /* enlarged graphical abstract */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
 
-    .team {
-      margin-top: 20px;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      width: 100%;           /* Fill the page width */
-      max-width: none;       /* Remove max-width restriction */
-      box-sizing: border-box;
-    }
+/* Responsive */
+@media (max-width: 1000px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .image-container img {
+    max-width: 100%;
+  }
+}
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columns */
-      gap: 28px;
-      margin-top: 28px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+/* TEAM + REST OF PAGE (UNCHANGED) */
+.team {
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
 
-    /* Responsive: 1 column on small screens */
-    @media (max-width: 900px) {
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: 600px) {
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+}
 
-    .team-member {
-      display: flex;
-      align-items: center;
-      text-align: left;
-      background-color: #f9fafb;
-      padding: 32px 28px;
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-      transition: transform 0.2s ease;
-      gap: 32px;
-      min-height: 220px;
-      min-width: 0;
-    }
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-    .team-member:hover {
-      transform: translateY(-5px);
-    }
+.team-member {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: #f9fafb;
+  padding: 32px 28px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease;
+  gap: 32px;
+  min-height: 220px;
+}
 
-    .team-member img {
-      width: 120px;
-      height: 170px;
-      border-radius: 0;
-      object-fit: cover;
-      margin-bottom: 0;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-      flex-shrink: 0;
-    }
+.team-member:hover {
+  transform: translateY(-5px);
+}
 
-    .team-member h4 {
-      font-size: 1.25rem;
-      color: #1d4ed8;
-      margin-bottom: 10px;
-    }
+.team-member img {
+  width: 120px;
+  height: 170px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
 
-    .team-member p {
-      font-size: 1.05rem;
-      color: #374151;
-      margin: 0;
-    }
+.team-member h4 {
+  font-size: 1.25rem;
+  color: #1d4ed8;
+  margin-bottom: 10px;
+}
 
-    .team-member.empty-tile {
-      background: transparent;
-      box-shadow: none;
-      pointer-events: none;
-    }
+.team-member p {
+  font-size: 1.05rem;
+  color: #374151;
+  margin: 0;
+}
 
-    .team-links {
-      margin-top: 14px;
-      display: flex;
-      gap: 18px;
-    }
-    .team-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #eef2ff;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      transition: background 0.2s;
-    }
-    .team-links a:hover {
-      background: #dbeafe;
-    }
+.team-member.empty-tile {
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}
 
-    .funding-info {
-      margin-top: 36px;
-      background: #f1f5f9;
-      border-radius: 10px;
-      padding: 22px 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      font-size: 1.08rem;
-    }
+.team-links {
+  margin-top: 14px;
+  display: flex;
+  gap: 18px;
+}
 
-  </style>
+.team-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+}
+
+.funding-info {
+  margin-top: 36px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-size: 1.08rem;
+}
+</style>
 </head>
 <body>
 
-  <h1>Educational Tool for 5G Power Consumption Modelling</h1>
+<h1>Educational Tool for 5G Power Consumption Modelling</h1>
 
-  <div class="main-container">
-    <div class="text-content">
+<div class="main-container">
+  <div class="text-content">
+    
+
       <p>
         This project presents a software application for <strong>5G NR Power Modeling</strong> developed in MATLAB.
         The tool includes an interactive GUI enabling users to compare power consumption across 5G architectures:
@@ -478,6 +476,7 @@ body {
 
 </body>
 </html>
+
 
 
 

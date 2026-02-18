@@ -8,230 +8,477 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-4ZSNLL4MWJ');
 </script>
 
-<meta charset="UTF-8">
-<title>Educational Tool for 5G Power Consumption Modelling</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  
+  <meta charset="UTF-8">
+  <title>Educational Tool for 5G Power Consumption Modelling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* RESET + BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
   background-color: #f9fafb;
   color: #1f2937;
   line-height: 1.6;
-  padding: 40px 10px;
-  max-width: 1400px;   /* slightly wider page */
+  padding: 40px 10px;  /* reduce from 20px → 10px */
+  max-width: 1300px;  /* optional: make page wider */
   margin: auto;
 }
 
-h1 {
-  color: #1d4ed8;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
 
-h3 {
-  margin-top: 20px;
-  font-size: 1.4rem;
-  color: #111827;
-}
+    h1 {
+      color: #1d4ed8;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
 
-p {
-  margin-bottom: 15px;
-  font-size: 1rem;
-}
+    h3 {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      color: #111827;
+    }
 
-ul {
-  list-style: disc inside;
-  margin-top: 10px;
-  padding-left: 10px;
-}
+    p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
 
-a {
-  color: #2563eb;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
+    ul {
+      list-style: disc inside;
+      margin-top: 10px;
+      padding-left: 10px;
+    }
 
-a:hover {
-  text-decoration: underline;
-  color: #1d4ed8;
-}
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
 
-/* BUTTON */
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  margin: 10px 0;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: #1f2937;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
+    a:hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
 
-.button svg {
-  width: 18px;
-  height: 18px;
-  fill: white;
-}
+    /* BUTTON STYLES */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #1f2937;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
 
-.button:hover {
-  background-color: #111827;
-}
+    .button svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
 
-/* MAIN FLEX LAYOUT */
-.main-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;                /* slightly more spacing */
-  align-items: center;      /* vertically center image */
-  margin-top: 30px;
-}
+    .button:hover {
+      background-color: #111827;
+    }
 
-.text-content {
-  flex: 1 1 50%;            /* reduced width */
-  min-width: 320px;
-}
+    /* FLEX CONTAINER */
+    .main-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
 
+    .text-content {
+      flex: 1 1 60%;
+      min-width: 320px;
+    }
 .text-content p {
   text-align: justify;
 }
 
-.image-container {
-  flex: 1 1 50%;            /* increased width */
-  min-width: 380px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .image-container {
+      flex: 1 1 35%;
+      min-width: 300px;
+    }
 
-.image-container img {
-  width: 100%;
-  max-width: 700px;         /* enlarged graphical abstract */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
-/* Responsive */
-@media (max-width: 1000px) {
-  .main-container {
-    flex-direction: column;
-  }
-  .image-container img {
-    max-width: 100%;
-  }
-}
+    .team {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      width: 100%;           /* Fill the page width */
+      max-width: none;       /* Remove max-width restriction */
+      box-sizing: border-box;
+    }
 
-/* TEAM + REST OF PAGE (UNCHANGED) */
-.team {
-  margin-top: 20px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  width: 100%;
-}
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      gap: 28px;
+      margin-top: 28px;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  margin-top: 28px;
-}
+    /* Responsive: 1 column on small screens */
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-@media (max-width: 900px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    .team-member {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      background-color: #f9fafb;
+      padding: 32px 28px;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+      transition: transform 0.2s ease;
+      gap: 32px;
+      min-height: 220px;
+      min-width: 0;
+    }
 
-.team-member {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  background-color: #f9fafb;
-  padding: 32px 28px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-  transition: transform 0.2s ease;
-  gap: 32px;
-  min-height: 220px;
-}
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
 
-.team-member:hover {
-  transform: translateY(-5px);
-}
+    .team-member img {
+      width: 120px;
+      height: 170px;
+      border-radius: 0;
+      object-fit: cover;
+      margin-bottom: 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
 
-.team-member img {
-  width: 120px;
-  height: 170px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
-}
+    .team-member h4 {
+      font-size: 1.25rem;
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
 
-.team-member h4 {
-  font-size: 1.25rem;
-  color: #1d4ed8;
-  margin-bottom: 10px;
-}
+    .team-member p {
+      font-size: 1.05rem;
+      color: #374151;
+      margin: 0;
+    }
 
-.team-member p {
-  font-size: 1.05rem;
-  color: #374151;
-  margin: 0;
-}
+    .team-member.empty-tile {
+      background: transparent;
+      box-shadow: none;
+      pointer-events: none;
+    }
 
-.team-member.empty-tile {
-  background: transparent;
-  box-shadow: none;
-  pointer-events: none;
-}
+    .team-links {
+      margin-top: 14px;
+      display: flex;
+      gap: 18px;
+    }
+    .team-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef2ff;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      transition: background 0.2s;
+    }
+    .team-links a:hover {
+      background: #dbeafe;
+    }
 
-.team-links {
-  margin-top: 14px;
-  display: flex;
-  gap: 18px;
-}
+    .funding-info {
+      margin-top: 36px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      padding: 22px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      font-size: 1.08rem;
+    }
 
-.team-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #eef2ff;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-}
-
-.funding-info {
-  margin-top: 36px;
-  background: #f1f5f9;
-  border-radius: 10px;
-  padding: 22px 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  font-size: 1.08rem;
-}
-</style>
+  </style>
 </head>
 <body>
 
-<h1>Educational Tool for 5G Power Consumption Modelling</h1>
+  <h1>Educational Tool for 5G Power Consumption Modelling</h1>
 
-<div class="main-container">
-  <div class="text-content">
-    <!-- ALL YOUR ORIGINAL TEXT CONTENT REMAINS EXACTLY THE SAME -->
+  <div class="main-container">
+    <div class="text-content">
+      <p>
+        This project presents a software application for <strong>5G NR Power Modeling</strong> developed in MATLAB.
+        The tool includes an interactive GUI enabling users to compare power consumption across 5G architectures:
+        D-RAN, C-RAN, and Cloud C-RAN.
+      </p>
+
+      <a id="download-tool-link" class="button" href="https://1drv.ms/u/c/7c829e97a0088980/IQBzm2V1JGVMRLrRju_U1WvkAckFZ8aWVmCyjb7-xjZ9ECw?e=hBa4vc" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M8.5 13.5v-9a.5.5 0 0 1 1 0v9l3.15-3.15a.5.5 0 0 1 .7.7l-4 4a.5.5 0 0 1-.7 0l-4-4a.5.5 0 1 1 .7-.7L8.5 13.5z"/></svg>
+        Download Tool
+      </a>
+      <!-- Inline disclaimer hidden; confirmation modal will show the same text before download -->
+      <div style="display:none;" aria-hidden="true">
+        <strong>Disclaimer (hidden):</strong>
+      </div>
+
+      <p>The software is distributed as a standalone executable file.</p>
+
+      <a class="button" href="https://1drv.ms/v/c/7c829e97a0088980/IQCi9xM3bA9RSZkzNA4H17oNAaU4Jxtz1QrrREREB4odJnY?e=oag5UP" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4.5 4a.5.5 0 0 1 .8-.4l9 6a.5.5 0 0 1 0 .8l-9 6a.5.5 0 0 1-.8-.4V4z"/></svg>
+        Watch Demo
+      </a>
+
+      <p>
+        For a more in-depth understanding and additional details, please refer to our open-access publications:<br>
+        <a href="https://doi.org/10.3390/math13030466" target="_blank">
+          End-to-End Power Models for 5G Radio Access Network Architectures with a Perspective on 6G
+        </a>
+        <br>
+        <em>
+          Doorgakant, B., Fowdur, T.P. and Akinsolu, M.O., 2025. End-to-End Power Models for 5G Radio Access Network Architectures with a Perspective on 6G. Mathematics, 13(3), p.466.
+        </em>
+      </p>
+    </div>
+
+    <div class="image-container">
+      <img src="Graphical_Abstract_V3.jpg" alt="Screenshot of MATLAB-based 5G Power Modeling Tool">
+    </div>
+  </div>
+
+  <div class="team">
+    <h3 style="margin-top:0; color:#1d4ed8;">The Project Team</h3>
+    <div class="team-grid">
+      
+      <div class="team-member">
+        <img src="mobayode.jpeg" alt="Dr. Mobayode Akinsolu">
+        <div>
+          <h4>Dr. Mobayode Akinsolu</h4>
+          <p><b>Principal Investigator</b><br>
+            Reader in Applied Artificial Intelligence and Electronic Engineering<br>
+            Faculty of Arts, Computing and Engineering, Wrexham University, Wrexham, LL11 2AW UK
+          </p>
+          <div class="team-links">
+            <a href="mailto:Mobayode.Akinsolu@wrexham.ac.uk" title="Email" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5v-.637a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.72 5.15a.75.75 0 0 1-.81 0L3.75 8.863V17.25c0 .69.56 1.25 1.25 1.25h14.5c.69 0 1.25-.56 1.25-1.25V8.863Z"/></svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=EyhHPWEAAAAJ&hl=en" title="Profile" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M12 2a5 5 0 0 1 5 5v1a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v1a3 3 0 1 0 6 0V7a3 3 0 0 0-3-3Zm-7 15a7 7 0 0 1 14 0v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1Zm2 .5V19h10v-.5a5 5 0 0 0-10 0Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="fowdur.jpeg" alt="Dr. Tulsi Pawan Fowdur">
+        <div>
+          <h4>Dr. Tulsi Pawan Fowdur</h4>
+          <p><b>Co-Investigator</b><br>
+              Associate Professor in Telecommunications Engineering and AI<br>
+              Department of Electrical and Electronic Engineering<br>
+              Faculty of Engineering<br>
+              University of Mauritius, Reduit, Mauritius
+          </p>
+          <div class="team-links">
+            <a href="mailto:p.fowdur@uom.ac.mu" title="Email" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5v-.637a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.72 5.15a.75.75 0 0 1-.81 0L3.75 8.863V17.25c0 .69.56 1.25 1.25 1.25h14.5c.69 0 1.25-.56 1.25-1.25V8.863Z"/></svg>
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=Zxiiw0kAAAAJ&view_op=list_works&authuser=1&sortby=pubdate" title="Profile" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M12 2a5 5 0 0 1 5 5v1a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v1a3 3 0 1 0 6 0V7a3 3 0 0 0-3-3Zm-7 15a7 7 0 0 1 14 0v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1Zm2 .5V19h10v-.5a5 5 0 0 0-10 0Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="arvind.jpeg" alt="Mr. Arvind Doorgakant">
+        <div>
+          <h4>Mr. Arvind Doorgakant</h4>
+          <p><b>Research Associate</b><br>
+              PhD Candidate in Telecommunications Engineering<br>
+              Department of Electrical and Electronic Engineering<br>
+              Faculty of Engineering<br>
+              University of Mauritius, Reduit, Mauritius
+          </p>
+          <div class="team-links">
+            <a href="mailto:bhuvaneshwar.doorgakant3@umail.uom.ac.mu" title="Email" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5v-.637a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.72 5.15a.75.75 0 0 1-.81 0L3.75 8.863V17.25c0 .69.56 1.25 1.25 1.25h14.5c.69 0 1.25-.56 1.25-1.25V8.863Z"/></svg>
+            </a>
+            <a href="https://orcid.org/0009-0003-2485-1176" title="Profile" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M12 2a5 5 0 0 1 5 5v1a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v1a3 3 0 1 0 6 0V7a3 3 0 0 0-3-3Zm-7 15a7 7 0 0 1 14 0v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1Zm2 .5V19h10v-.5a5 5 0 0 0-10 0Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="madhav.jpeg" alt="Dr. Madhavsingh Indoonundon">
+        <div>
+          <h4>Dr. Madhavsingh Indoonundon</h4>
+          <p><b>Research Associate</b><br>
+            Researcher in Telecommunications Engineering<br>
+            Department of Electrical and Electronic Engineering<br>
+            Faculty of Engineering<br>
+            University of Mauritius, Reduit, Mauritius
+          </p>
+          <div class="team-links">
+            <a href="mailto:madhavsingh.indoonundon1@umail.uom.ac.mu" title="Email" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5v-.637a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.72 5.15a.75.75 0 0 1-.81 0L3.75 8.863V17.25c0 .69.56 1.25 1.25 1.25h14.5c.69 0 1.25-.56 1.25-1.25V8.863Z"/></svg>
+            </a>
+            <a href="https://orcid.org/0000-0002-5903-477X" title="Profile" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M12 2a5 5 0 0 1 5 5v1a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v1a3 3 0 1 0 6 0V7a3 3 0 0 0-3-3Zm-7 15a7 7 0 0 1 14 0v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1Zm2 .5V19h10v-.5a5 5 0 0 0-10 0Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="ray.jpeg" alt="Mr. Chekwube Ezechi (Research Associate)">
+        <div>
+          <h4>Dr. Chekwube Ezechi</h4>
+          <p><b>Research Associate</b><br>
+            Researcher in Computer Science<br>
+            Faculty of Natural and Applied Sciences, Lead City University, Ibadan 200255, Oyo State, Nigeria.
+          </p>
+          <div class="team-links">
+            <a href="mailto:chekwube.ezechi@lcu.edu.ng" title="Email" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.75-1.25a1.25 1.25 0 0 0-1.25 1.25v.637l8.25 5.5 8.25-5.5v-.637a1.25 1.25 0 0 0-1.25-1.25H4.75Zm15.25 3.363-7.72 5.15a.75.75 0 0 1-.81 0L3.75 8.863V17.25c0 .69.56 1.25 1.25 1.25h14.5c.69 0 1.25-.56 1.25-1.25V8.863Z"/></svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=_gxpUqwAAAAJ&hl=en" title="Profile" target="_blank">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path fill="#2563eb" d="M12 2a5 5 0 0 1 5 5v1a5 5 0 1 1-10 0V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v1a3 3 0 1 0 6 0V7a3 3 0 0 0-3-3Zm-7 15a7 7 0 0 1 14 0v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-1Zm2 .5V19h10v-.5a5 5 0 0 0-10 0Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty tile for 6th slot -->
+      <div class="team-member empty-tile"></div>
+
+    </div>
+  </div>
+
+<div class="funding-info">
+  <h3 style="margin-top:0; color:#1d4ed8;">Funding & Support</h3>
+  <div style="display: flex; align-items: flex-start; gap: 16px; margin-top: 16px;">
+    <a href="https://wrexham.ac.uk/" target="_blank">
+      <img src="wrexham.jpg" alt="Wrexham Logo" style="width:280px; height:auto; flex-shrink:0;">
+    </a>
+    <ul style="list-style: none; padding-left: 0; margin: 0;">
+      <li style="margin-bottom: 10px;">
+        2025 FACE QR Research Funding Award, Wrexham University, U.K.
+      </li>
+      <li>
+        2024 FACE QR Research Funding Award, Wrexham University, U.K.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Download confirmation modal (hidden by default) -->
+<div id="downloadModal" aria-hidden="true" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999;">
+  <div role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle" style="background:#fff; max-width:720px; width:90%; margin:20px; border-radius:8px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+    <h3 id="downloadModalTitle" style="margin-top:0; color:#1d4ed8;">Download Disclaimer</h3>
+    <div style="margin-top:12px; color:#111827; line-height:1.5; font-size:0.95rem;">
+      <p><strong>Disclaimer:</strong> To the best of the authors' knowledge, the software provided for download is free from viruses, malware, or any harmful components. The software has been developed and tested with the intention of being safe and functional for educational and research purposes. However, by choosing to download, install, or use the software, users accept full responsibility for any risks or potential issues that may arise. The authors and affiliated institutions shall not be held liable for any damage, data loss, or other consequences resulting from the use or testing of the software on users' personal or institutional devices.</p>
+    <p> This is a restricted version of the app which supports only the 5G-DRAN use-case. For full version of the app, please contact the authors.</p>
+    </div>
+    <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:18px;">
+      <button id="cancelDownload" style="background:#e5e7eb; color:#111827; border:none; padding:10px 14px; border-radius:6px; cursor:pointer;">Cancel</button>
+      <button id="confirmDownload" style="background:#1f2937; color:#fff; border:none; padding:10px 14px; border-radius:6px; cursor:pointer;">Continue with Download</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var downloadLink = document.getElementById('download-tool-link');
+    var modal = document.getElementById('downloadModal');
+    var confirmBtn = document.getElementById('confirmDownload');
+    var cancelBtn = document.getElementById('cancelDownload');
+    var pendingHref = null;
+
+    if (!downloadLink) return;
+
+    function showModal(href){
+      pendingHref = href;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      // set focus to confirm for keyboard users
+      confirmBtn.focus();
+    }
+
+    function hideModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      pendingHref = null;
+    }
+
+    downloadLink.addEventListener('click', function(e){
+      e.preventDefault();
+      var href = this.getAttribute('href');
+      showModal(href);
+    });
+
+    confirmBtn.addEventListener('click', function(){
+      if (pendingHref) {
+        // open in new tab (same behaviour as original link)
+        window.open(pendingHref, '_blank');
+      }
+      hideModal();
+    });
+
+    cancelBtn.addEventListener('click', function(){
+      hideModal();
+    });
+
+    // close modal on overlay click
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) hideModal();
+    });
+
+    // close on Escape
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && modal.style.display === 'flex') hideModal();
+    });
+  })();
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
